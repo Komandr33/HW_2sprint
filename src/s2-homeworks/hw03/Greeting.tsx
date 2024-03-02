@@ -7,7 +7,7 @@ type GreetingPropsType = {
   addUser: () => void // need to fix any
   onBlur: () => void // need to fix any
   onEnter: (e: KeyboardEvent<HTMLInputElement>) => void // need to fix any
-  error: string // need to fix any
+  error: string | null // need to fix any
   totalUsers: number // need to fix any
   lastUserName?: string // need to fix any
 }
@@ -25,9 +25,11 @@ const Greeting: React.FC<GreetingPropsType> = (
         lastUserName,
     } // деструктуризация пропсов
 ) => {
-    const inputClass = !error ? s.input : s.errorInput // need to fix with (?:)
+    const inputClass = error ? s.errorInput : s.input// need to fix with (?:)? s.errorInput : s.input)
 
-    return (
+
+
+  return (
         <div id={'hw3-form'} className={s.greetingForm}>
             <div className={s.text}>
                 {'Людей добавили: '}
