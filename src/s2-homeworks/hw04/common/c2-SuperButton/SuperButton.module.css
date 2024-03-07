@@ -11,13 +11,6 @@
     opacity: 50%;
 }
 
-.secondary {
-    background-color: transparent;
-    border: 1px solid #0066CC;
-    color: #002E5C;
-    width: 176px;
-}
-
 .default {
     background: #0066CC;
     color: #FFFFFF;
@@ -26,6 +19,13 @@
 .red {
     background: red;
     color: #FFFFFF;
+}
+
+.secondary {
+    background-color: transparent;
+    border: 1px solid #0066CC;
+    color: #002E5C;
+    width: 176px;
 }
 
 .default:hover {
@@ -44,12 +44,18 @@
 }
 
 .default:active {
-}
-
-.secondary:active {
+    background: #0059B2;
+    width: 149px;
 }
 
 .red:active {
+    background: #B21232;
+    width: 149px;
+}
+
+.secondary:active {
+    background: #C9E5FF;
+    width: 149px;
 }
 
 .button:disabled {
