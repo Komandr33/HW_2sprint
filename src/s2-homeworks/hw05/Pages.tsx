@@ -1,9 +1,10 @@
 import React from 'react'
-import {Navigate, Route, Routes} from 'react-router-dom'
+import {Navigate, NavLink, Route, Routes} from 'react-router-dom'
 import PreJunior from './pages/PreJunior'
 import Junior from './pages/Junior'
 import JuniorPlus from './pages/JuniorPlus'
 import Error404 from './pages/Error404';
+import {Layout} from './layout/Layout';
 
 export const PATH = {
     PRE_JUNIOR: '/pre-junior',
@@ -16,7 +17,7 @@ function Pages() {
       <div>
         {/*Routes выбирает первый подходящий роут*/}
         <Routes>
-          {/*<NavLink to={'/'}/>*/}
+          {/*<NavLink to={'/'}><Layout children={''}/></NavLink>*/}
           {/*роутинг будут писать студенты*/}
           {/*в начале мы попадаем на страницу '/' и переходим сразу на страницу /pre-junior*/}
           <Route path={'/'} element={<Navigate to={PATH.PRE_JUNIOR}/>}/>

@@ -1,8 +1,19 @@
 .burgerMenuIcon {
+    margin-left: 70px;
+    width: 24px;
+    height: 24px;
 }
 
 .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2); /* Гор. смещение, верт. смещение, радиус размытия и цвет тени */
 }
 
 .header h1 {
+    margin-right: 70px;
+    font-size: 24px;
 }

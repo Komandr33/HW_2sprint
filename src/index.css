@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /*-ms-overflow-style: none; !* IE and Edge *!!* срывает отображение прокрутки *!*/
+    /*scrollbar-width: none; !* Firefox *!*/
 }
 
 body {
@@ -12,7 +14,12 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     box-sizing: border-box;
+
 }
+
+/*body::-webkit-scrollbar {*/
+/*    display: none; !* Webkit (Chrome, Safari, Opera) *! !* срывает отображение прокрутки *!*/
+/*}*/
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

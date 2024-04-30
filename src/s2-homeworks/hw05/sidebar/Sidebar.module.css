@@ -1,13 +1,36 @@
 .sidebar {
+    display: none;
 }
 
 .sidebar.open {
+    background: #FFFFFF;
+    position: fixed; /* фиксированное позиционирование для распространения на всю видимую область */
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 317px;
+    height: 100%;   /* растянуть на всю высоту */
+    z-index: 9999; /* положим сайдбар поверх других элементов */
 }
 
 .background {
+    position: fixed; /* фиксированное позиционирование для распространения на всю видимую область */
+    top: 0;
+    left: 0;
+    width: 100%; /* занимать 100% ширины страницы */
+    height: 100%; /* занимать 100% высоты страницы */
+    background-color: rgba(0, 0, 0, 0.2); /* Полупрозрачный черный цвет для затемнения */
+    z-index: 9998; /* разместим затемнение под сайдбаром */
+    /*background-color: black;*/
+    /*opacity: 0.2;*/
 }
 
 .nav {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
 }
 
 .nav a {
@@ -19,6 +42,12 @@
 .nav a.active {
 }
 .close {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 16px 16px 24px 269px;
 }
 
 .close img {
