@@ -34,12 +34,19 @@
 }
 
 .nav a {
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: none; /* убрать подчеркивание для ссылок */
+    color: inherit; /* наследуем цвет текста */
 }
 
 .nav a:hover {
+    color: #58ACFF;
 }
 
 .nav a.active {
+    color: #0059B2;
+    text-decoration: underline; /* вернуть подчеркивание для ссылок */
 }
 .close {
     width: 24px;
@@ -51,4 +58,5 @@
 }
 
 .close img {
+    cursor: pointer;
 }
