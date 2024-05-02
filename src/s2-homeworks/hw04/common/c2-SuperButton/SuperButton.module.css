@@ -1,9 +1,11 @@
 .button {
+    border: none;
     border-radius: 3px;
     width: 132px;
     height: 30px;
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
+    padding: 5px 24px;
 }
 
 .disabled {
@@ -23,8 +25,8 @@
 
 .secondary {
     background-color: transparent;
-    border: 1px solid #0066CC;
-    color: #002E5C;
+    border: 3px solid #0066CC;
+    color: #0066CC;
     width: 176px;
 }
 
