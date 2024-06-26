@@ -9,6 +9,9 @@
     padding: 24px;
 }
 
+input:focus-within {   /* псевдокласс меняет задний фон при фокусе */
+    background-color: rgb(185, 185, 185, 0.2);
+}
 .inputWrapper {
     position: relative;
 }
