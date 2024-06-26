@@ -40,7 +40,7 @@ function Clock() {
 
   // день недели на английском, месяц на английском (https://learn.javascript.ru/intl#intl-datetimeformat)
   const stringDay = new Intl.DateTimeFormat('eng', {weekday: 'long'}).format(date) || <br/> // пишут студенты
-  const stringMonth = new Intl.DateTimeFormat('eng', {month: 'short'}).format(date) || <br/> // пишут студенты
+  const stringMonth = new Intl.DateTimeFormat('eng', {month: 'long'}).format(date) || <br/> // пишут студенты
 
   return (
     <div className={s.clock}>
