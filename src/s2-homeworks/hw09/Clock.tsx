@@ -34,19 +34,13 @@ function Clock() {
     setShow(false);
   }
 
-  const formatter = (p: string, obj?: any) => new Intl.DateTimeFormat(p, obj)
-  let timeParams = {
-    hour: 'numeric',
-    minute: 'numeric',
-    second: 'numeric'
-  }
-
-  const stringTime = formatter('ru', timeParams).format(date) || <br/> // часы24:минуты:секунды (01:02:03)/(23:02:03)/(24:00:00)/(00:00:01) // пишут студенты
-  const stringDate = formatter('ru').format(date) || <br/> // день.месяц.год (01.02.2022) // пишут студенты, варианты 01.02.0123/01.02.-123/01.02.12345 не рассматриваем
+  const timeParams: any = {hour: 'numeric', minute: 'numeric', second: 'numeric'}
+  const stringTime = new Intl.DateTimeFormat('ru', timeParams).format(date) || <br/> // часы24:минуты:секунды (01:02:03)/(23:02:03)/(24:00:00)/(00:00:01) // пишут студенты
+  const stringDate = new Intl.DateTimeFormat('ru').format(date) || <br/> // день.месяц.год (01.02.2022) // пишут студенты, варианты 01.02.0123/01.02.-123/01.02.12345 не рассматриваем
 
   // день недели на английском, месяц на английском (https://learn.javascript.ru/intl#intl-datetimeformat)
-  const stringDay = formatter('ru').format(date) || <br/> // пишут студенты
-  const stringMonth = formatter('eng', {month: 'short'}).format(date) || <br/> // пишут студенты
+  const stringDay = new Intl.DateTimeFormat('eng', {weekday: 'long'}).format(date) || <br/> // пишут студенты
+  const stringMonth = new Intl.DateTimeFormat('eng', {month: 'short'}).format(date) || <br/> // пишут студенты
 
   return (
     <div className={s.clock}>
