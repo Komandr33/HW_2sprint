@@ -32,32 +32,32 @@
 
 .default:hover {
     background: #0080FF;
-    width: 176px;
+    /*width: 176px;*/
 }
 
 .red:hover {
     background: #FF1A47;;
-    width: 176px;
+    /*width: 176px;*/
 }
 
 .secondary:hover {
     background: #E5F0FA;
-    width: 176px;
+    /*width: 176px;*/
 }
 
 .default:active {
     background: #0059B2;
-    width: 149px;
+    /*width: 149px;*/
 }
 
 .red:active {
     background: #B21232;
-    width: 149px;
+    /*width: 149px;*/
 }
 
 .secondary:active {
     background: #C9E5FF;
-    width: 149px;
+    /*width: 149px;*/
 }
 
 .button:disabled {
