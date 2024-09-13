@@ -5,9 +5,9 @@ import { restoreState } from '../hw06/localStorage/localStorage'
 import SuperRange from './common/c7-SuperRange/SuperRange'
 
 /*
-* 1 - передать значения в оба слайдера
-* 2 - дописать типы и логику функции change
-* 3 - сделать стили в соответствии с дизайном
+* 1 - передать значения в оба слайдера +
+* 2 - дописать типы и логику функции change +
+* 3 - сделать стили в соответствии с дизайном -
 * */
 
 function HW11() {
@@ -20,7 +20,6 @@ function HW11() {
                 setValue1(value[0])
                 setValue2(value[1])
             } else setValue1(value)
-            // пишет студент // если пришёл массив - сохранить значения в оба useState, иначе в первый
     }
 
     return (
