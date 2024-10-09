@@ -6,7 +6,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {changeThemeId} from './bll/themeReducer'
 
 /*
-* 1 - в файле themeReducer.ts написать нужные типы вместо any, дописать редьюсер
+* 1 - в файле themeReducer.ts написать нужные типы вместо any, дописать редьюсер +
 * 2 - получить themeId из редакса
 * 3 - дописать тип и логику функции change
 * 4 - передать пропсы в SuperSelect
