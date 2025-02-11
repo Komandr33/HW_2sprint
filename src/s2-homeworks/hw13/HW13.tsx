@@ -9,9 +9,9 @@ import error500 from './images/500.svg'
 import errorUnknown from './images/error.svg'
 
 /*
-* 1 - дописать функцию send
-* 2 - дизэйблить кнопки пока идёт запрос
-* 3 - сделать стили в соответствии с дизайном
+* 1 - дописать функцию send +++
+* 2 - дизэйблить кнопки пока идёт запрос +++
+* 3 - сделать стили в соответствии с дизайном +++
 * */
 
 const HW13 = () => {
@@ -19,6 +19,7 @@ const HW13 = () => {
     const [text, setText] = useState('')
     const [info, setInfo] = useState('')
     const [image, setImage] = useState('')
+    const [isDisabled, setIsDisabled] = useState(false)
 
     const send = (x?: boolean | null) => () => {
         const url =
@@ -30,19 +31,41 @@ const HW13 = () => {
         setImage('')
         setText('')
         setInfo('...loading')
-
+        setIsDisabled(true)
         axios
-            .post(url, {success: x})
-            .then((res) => {
-                setCode('Код 200!')
-                setImage(success200)
-                // дописать
+          .post(url, {success: x})
+          .then((res) => {
+              // дописать
+              setCode('Код 200!')
+              setImage(success200)
+              setText(res.data.errorText)
+              setInfo(res.data.info)
 
-            })
-            .catch((e) => {
-                // дописать
-
-            })
+              console.log(res)
+          })
+          .catch((e) => {
+              // дописать
+              if (e.code === 'ERR_BAD_RESPONSE') {
+                  setCode(`Ошибка ${e.response.status}!`)
+                  setImage(error500)
+                  setText(e.response.data.errorText)
+                  setInfo(e.response.data.info)
+              } else if (e.code === 'ERR_BAD_REQUEST') {
+                  setCode(`Ошибка ${e.response.status}!`)
+                  setImage(error400)
+                  setText(e.response.data.errorText)
+                  setInfo(e.response.data.info)
+              } else if (e.code === 'ERR_NETWORK') {
+                  setCode(`Error!`)
+                  setImage(errorUnknown)
+                  setText(e.message)
+                  setInfo(e.name)
+              }
+              console.log(e)
+          })
+          .finally(() => {
+              setIsDisabled(false)
+          })
     }
 
     return (
@@ -52,37 +75,40 @@ const HW13 = () => {
             <div className={s2.hw}>
                 <div className={s.buttonsContainer}>
                     <SuperButton
-                        id={'hw13-send-true'}
-                        onClick={send(true)}
-                        xType={'secondary'}
-                        // дописать
+                      id={'hw13-send-true'}
+                      onClick={send(true)}
+                      xType={'secondary'}
+                      disabled={isDisabled}
 
                     >
                         Send true
                     </SuperButton>
                     <SuperButton
-                        id={'hw13-send-false'}
-                        onClick={send(false)}
-                        xType={'secondary'}
-                        // дописать
+                      id={'hw13-send-false'}
+                      onClick={send(false)}
+                      xType={'secondary'}
+                      disabled={isDisabled}
+                      // дописать
 
                     >
                         Send false
                     </SuperButton>
                     <SuperButton
-                        id={'hw13-send-undefined'}
-                        onClick={send(undefined)}
-                        xType={'secondary'}
-                        // дописать
+                      id={'hw13-send-undefined'}
+                      onClick={send(undefined)}
+                      xType={'secondary'}
+                      disabled={isDisabled}
+                      // дописать
 
                     >
                         Send undefined
                     </SuperButton>
                     <SuperButton
-                        id={'hw13-send-null'}
-                        onClick={send(null)} // имитация запроса на не корректный адрес
-                        xType={'secondary'}
-                        // дописать
+                      id={'hw13-send-null'}
+                      onClick={send(null)} // имитация запроса на не корректный адрес
+                      xType={'secondary'}
+                      disabled={isDisabled}
+                      // дописать
 
                     >
                         Send null
