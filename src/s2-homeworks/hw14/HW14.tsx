@@ -7,7 +7,7 @@ import {useSearchParams} from 'react-router-dom'
 
 /*
 * 1 - дописать функцию onChangeTextCallback в SuperDebouncedInput
-* 2 - дописать функцию sendQuery в HW14
+* 2 - дописать функцию sendQuery в HW14 ++
 * 3 - дописать функцию onChangeText в HW14
 * 4 - сделать стили в соответствии с дизайном
 * 5 - добавить HW14 в HW5/pages/JuniorPlus
@@ -15,13 +15,11 @@ import {useSearchParams} from 'react-router-dom'
 
 const getTechs = (find: string) => {
     return axios
-        .get<{ techs: string[] }>(
-            'https://samurai.it-incubator.io/api/3.0/homework/test2',
-            {params: {find}}
-        )
-        .catch((e) => {
-            alert(e.response?.data?.errorText || e.message)
-        })
+      .get<{ techs: string[] }>(
+        'https://samurai.it-incubator.io/api/3.0/homework/test2', {params: {find: find}})
+      .catch((e) => {
+        alert(e.response?.data?.errorText || e.message)
+      })
 }
 
 const HW14 = () => {
@@ -31,25 +29,24 @@ const HW14 = () => {
     const [techs, setTechs] = useState<string[]>([])
 
     const sendQuery = (value: string) => {
-        setLoading(true)
-        getTechs(value)
-            .then((res) => {
-                // делает студент
-
-                // сохранить пришедшие данные
-
-                //
-            })
+      setLoading(true)
+      getTechs(value)
+        .then((res) => {
+          if (res) {
+            setTechs(res.data.techs)
+          }
+        })
+        .catch((e) => {
+          console.log(e.response?.data?.errorText || e.message)
+      })
+        .finally(() => {
+          setLoading(false)
+        })
     }
 
     const onChangeText = (value: string) => {
-        setFind(value)
-        // делает студент
-
-        // добавить/заменить значение в квери урла
-        // setSearchParams(
-
-        //
+      setFind(value)
+      setSearchParams({find: value})
     }
 
     useEffect(() => {
